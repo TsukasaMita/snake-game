@@ -18,22 +18,18 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-
       - name: Set up Python (for official Tkinter macOS build)
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
-
-      - name: Install PyInstaller via uv
+      - name: Install PyInstaller (macOS / Windows pipeline)
         run: |
-          uv venv --python $(which python)
-          uv add pyinstaller
+          python -m pip install --upgrade pip
+          pip install pyinstaller
 
       - name: Build Executable
-        run: uv run pyinstaller --onefile --console --name snake-game main.py
+        run: pyinstaller --onefile --console --name snake-game main.py
 
       - name: Zip Artifacts (macOS)
         if: matrix.os == 'macos-latest'
