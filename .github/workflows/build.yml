@@ -32,4 +32,37 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: snake-game-${{ matrix.os }}
-          path: dist/
+          path: dist/*
+          
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Zip Artifacts for Release
+        run: |
+          cd artifacts/snake-game-windows-latest
+          zip -r ../../snake-game-windows-latest.zip *
+          cd ../snake-game-macos-latest
+          zip -r ../../snake-game-macos-latest.zip *
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Latest Release"
+          body: "Automated build of the Snake Game."
+          files: |
+            snake-game-windows-latest.zip
+            snake-game-macos-latest.zip
+          draft: false
+          prerelease: false
