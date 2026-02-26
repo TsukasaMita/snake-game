@@ -19,13 +19,18 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v5
+      - name: Set up Python (for official Tkinter macOS build)
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
       - name: Install PyInstaller via uv
-        run: uv add pyinstaller
+        run: |
+          uv venv --python $(which python)
+          uv add pyinstaller
 
       - name: Build Executable
         run: uv run pyinstaller --onefile --console --name snake-game main.py
