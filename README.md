@@ -29,7 +29,7 @@ Du musst für dieses Spiel **nichts installieren** und benötigst auch kein Pyth
 2. Lade die Datei `snake-game-macos-latest.zip` herunter.
 3. Entpacke die ZIP-Datei.
 4. Starte das Spiel durch einen Klick auf die Spieldatei `snake-game`.
-*(Hinweis für Mac-Nutzer: Da das Spiel nicht von Apple signiert ist, musst du beim ersten Mal einen **Rechtsklick** auf die Datei machen und **Öffnen** wählen, um es zu starten).*
+*(Hinweis für Mac-Nutzer: Da das Spiel nicht von Apple signiert ist, musst du es in den Systemeinstellungen unter Datenschutz und Sicherheit akzeptieren, um es zu starten).*
 
 ---
 
