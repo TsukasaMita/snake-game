@@ -26,7 +26,7 @@ jobs:
         run: uv add pyinstaller
 
       - name: Build Executable
-        run: uv run pyinstaller --onedir --console --name snake-game main.py
+        run: uv run pyinstaller --onefile --console --name snake-game main.py
 
       - name: Zip Artifacts (macOS)
         if: matrix.os == 'macos-latest'
