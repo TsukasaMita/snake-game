@@ -28,11 +28,22 @@ jobs:
       - name: Build Executable
         run: uv run pyinstaller --onefile --windowed --name snake-game main.py
 
+      - name: Zip Artifacts (macOS)
+        if: matrix.os == 'macos-latest'
+        run: |
+          cd dist
+          zip -ry ../snake-game-${{ matrix.os }}.zip .
+
+      - name: Zip Artifacts (Windows)
+        if: matrix.os == 'windows-latest'
+        run: |
+          Compress-Archive -Path dist\* -DestinationPath snake-game-${{ matrix.os }}.zip
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: snake-game-${{ matrix.os }}
-          path: dist/*
+          path: snake-game-${{ matrix.os }}.zip
           
   release:
     needs: build
@@ -47,13 +58,8 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: artifacts
-
-      - name: Zip Artifacts for Release
-        run: |
-          cd artifacts/snake-game-windows-latest
-          zip -r ../../snake-game-windows-latest.zip *
-          cd ../snake-game-macos-latest
-          zip -r ../../snake-game-macos-latest.zip *
+          pattern: snake-game-*
+          merge-multiple: true
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -62,7 +68,6 @@ jobs:
           name: "Latest Release"
           body: "Automated build of the Snake Game."
           files: |
-            snake-game-windows-latest.zip
-            snake-game-macos-latest.zip
+            artifacts/*.zip
           draft: false
           prerelease: false
