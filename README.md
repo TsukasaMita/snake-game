@@ -40,7 +40,7 @@ Wenn du den Code bearbeiten oder das Spiel direkt über Python ausführen möcht
 1. **Voraussetzung:** Python (>= 3.12) und ein Paketmanager wie `uv` oder `pip` müssen installiert sein.
 2. **Repository klonen / herunterladen:**
    ```bash
-   git clone https://github.com/DeinBenutzername/snake-game.git
+   git clone https://github.com/TsukasaMita/snake-game.git
    cd snake-game
    ```
 3. **Das Spiel starten:** Führe den folgenden Befehl im Terminal aus:
