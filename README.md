@@ -14,21 +14,40 @@ Das Spiel wird ganz einfach mit den Pfeiltasten auf deiner Tastatur gesteuert:
 - **Pfeiltaste Links (⬅️):** Nach links bewegen
 - **Pfeiltaste Rechts (➡️):** Nach rechts bewegen
 
-## 🚀 Wie man das Spiel auf dem PC spielt
+## 🚀 Installation & Spielen (Für Spieler)
 
-Um das Spiel auf deinem PC spielen zu können, musst du Python installiert haben. Das Spiel verwendet das Modul `turtle`, sodass keine zusätzlichen Bibliotheken heruntergeladen werden müssen.
+Du musst für dieses Spiel **nichts installieren** und benötigst auch kein Python. Lade dir einfach die fertige Datei für dein System herunter:
 
-### Schritt-für-Schritt-Anleitung:
+### Windows (.exe)
+1. Gehe auf der rechten Seite dieser GitHub-Seite auf **"Releases"** (oder klicke auf die neueste Version).
+2. Lade die Datei `snake-game-windows-latest.zip` herunter.
+3. Entpacke die ZIP-Datei.
+4. Starte das Spiel mit einem Doppelklick auf `snake-game.exe`.
 
-1. **Terminal / Eingabeaufforderung öffnen:** Öffne dein Terminal (Mac/Linux) oder die Eingabeaufforderung / PowerShell (Windows).
-2. **In den Spieleordner navigieren:** Wechsle mit dem Befehl `cd` in den Ordner dieses Projekts, wo sich die Datei `main.py` befindet. Zum Beispiel:
+### macOS (.app / Binary)
+1. Gehe auf der rechten Seite dieser GitHub-Seite auf **"Releases"** (oder klicke auf die neueste Version).
+2. Lade die Datei `snake-game-macos-latest.zip` herunter.
+3. Entpacke die ZIP-Datei.
+4. Starte das Spiel durch einen Klick auf die Spieldatei `snake-game`.
+*(Hinweis für Mac-Nutzer: Da das Spiel nicht von Apple signiert ist, musst du beim ersten Mal einen **Rechtsklick** auf die Datei machen und **Öffnen** wählen, um es zu starten).*
+
+---
+
+## 🛠️ Für Entwickler (Ausführen aus dem Quellcode)
+
+Wenn du den Code bearbeiten oder das Spiel direkt über Python ausführen möchtest:
+
+1. **Voraussetzung:** Python (>= 3.12) und ein Paketmanager wie `uv` oder `pip` müssen installiert sein.
+2. **Repository klonen / herunterladen:**
    ```bash
-   cd pfad/zum/snake-game
+   git clone https://github.com/DeinBenutzername/snake-game.git
+   cd snake-game
    ```
-3. **Das Spiel starten:** Führe den folgenden Befehl im Terminal aus, um das Spiel zu starten:
+3. **Das Spiel starten:** Führe den folgenden Befehl im Terminal aus:
    ```bash
    python main.py
+   # oder falls uv genutzt wird:
+   uv run main.py
    ```
-   *(Auf manchen Systemen, wie z.B. Mac, musst du stattdessen `python3 main.py` eingeben)*
 
 Viel Spaß beim Spielen! 🍎🐍
